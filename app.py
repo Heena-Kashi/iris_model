@@ -64,26 +64,5 @@ if st.button("Predict"):
     prediction = model.predict(input_data)
 
     st.success(f"Predicted Iris Species: {prediction[0]}")
-```
 
-**GitHub folder me exactly ye files rakho:**
 
-```text
-iris_model/
-│
-├── app.py
-├── iris_model.pkl
-└── requirements.txt
-```
-
-`requirements.txt`:
-
-```text
-streamlit
-joblib
-scikit-learn
-numpy
-pandas
-```
-
-**Important:** Agar tumhari actual model file `iris_model.pkl` nahi balki kisi aur naam se hai, to `model_path` me wahi exact filename likhna hoga.
