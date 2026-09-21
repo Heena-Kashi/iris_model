@@ -1,0 +1,26 @@
+import streamlit as st
+import joblib
+import numpy as pd
+
+# load model
+model = joblib.load('iris_model_pk1')
+
+#page title
+st.title('iris flower Prediction App
+
+st.header('Enter the measurements of the Iris Flower')
+
+#Input labels
+sepal_length = st.number_input('Sepal length (cm)', min_value=0.0, max_value=8.0, value=5.0, step=0.1)
+sepal_width = st.number_input('Sepal width (cm)', min_value=0.0, max_value=5.0, value=3.0, step=0.1)
+petal_length = st.number_input('Petal length (cm)', min_value=0.0, max_value=8.0, value=4.0, step=0.1)
+petal_width = st.number_input('Petal width (cm)', min_value=0.0, max_value=3.0, value=1.0, step=0.1)
+
+#Prediction
+if st.button('Predict'):
+    input_data = np.array([[sepal_length,
+                            sepal_width,
+                            petal_length,
+                            petal_width]]).astype(np.float64)
+    prediction = model.predict(input_data)
+    st.success(f'The predicted Iris species is: {prediction[0]}')
